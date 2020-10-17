@@ -8,7 +8,13 @@ export enum ErrorType {
 
 export type TError = Error & {
   id: ErrorType;
-  statusCode: number;
+  statusCode?: number;
+};
+
+export const defaultError = {
+  id: ErrorType.INTERNAL_ERROR,
+  statusCode: 500,
+  message: 'Ha ocurrido un error inesperado, intente mas tarde.',
 };
 
 export const ErrorValue = {
@@ -32,10 +38,5 @@ export const ErrorValue = {
     statusCode: 405,
     message: 'Método no soportado.',
   },
-};
-
-export const defaultError = {
-  id: ErrorType.INTERNAL_ERROR,
-  statusCode: 500,
-  message: 'Ha ocurrido un error inesperado, intente mas tarde.',
+  MLIBRE_REQUEST_ERROR: defaultError,
 };

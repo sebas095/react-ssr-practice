@@ -1,3 +1,5 @@
+import { TError, ErrorType, defaultError, ErrorValue } from './constants';
+
 const getPicturesFromPictures = (pictures: TPicture[]): Url => {
   return pictures[0].url;
 };
@@ -67,4 +69,17 @@ export const formatItem = (
 
 export const formatItems = (items: TItem[]): TFItem[] => {
   return items.map(item => formatItem(item));
+};
+
+export const formatError = (err: Error, errorType: ErrorType): TError => {
+  console.log('error ->', err);
+  const error: TError = new Error() as TError;
+
+  error.id = errorType;
+  error.statusCode = ErrorValue[errorType]?.statusCode;
+  error.message = `${ErrorValue[errorType]?.message || defaultError.message}${
+    err?.message ? ` - [${err.message}]` : ''
+  }`;
+
+  return error;
 };
