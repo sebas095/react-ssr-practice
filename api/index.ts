@@ -1,4 +1,5 @@
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
+config(); // config environment variables
 
 import express, { Application, Router } from 'express';
 import logger from 'morgan';
@@ -12,7 +13,6 @@ import search from './src/routes/search.routes';
 import { ErrorMiddleware, NotFoundMiddleware } from './src/middlewares';
 
 // Config
-dotenv.config();
 const PORT: number = Number(process.env.PORT) || 5000;
 
 const app: Application = express();
