@@ -21,6 +21,7 @@ export class MLibreService {
   }
 
   static async getItem(id: string): Promise<TFItem> {
+    console.log({ MLIBRE_BASE_URL });
     const responseItem: Response = await fetch(
       `${MLIBRE_BASE_URL}/items/${id}`,
     );
