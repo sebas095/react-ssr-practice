@@ -19,7 +19,7 @@ const formatPrice = (price: number, currencyId: string): TPrice => ({
 });
 
 const getCategoriesFromFilters = (filters: TFilters): string[] => {
-  const category: TFilter = filters.filter(
+  const category: TFilter = filters?.filter(
     filter => filter.id === 'category',
   )[0];
 
@@ -68,7 +68,7 @@ export const formatItem = (
 });
 
 export const formatItems = (items: TItem[]): TFItem[] => {
-  return items.map(item => formatItem(item));
+  return items?.map(item => formatItem(item));
 };
 
 export const formatError = (err: Error, errorType: ErrorType): TError => {
