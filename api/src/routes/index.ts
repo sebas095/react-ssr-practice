@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import HomeController from '../controllers';
+import HomeController from '@controllers';
 
 export default (app: Router, mountPoint: string) => {
   const router: Router = Router();

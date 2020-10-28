@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 
-import { MLibreService } from '../services/mlibre.service';
-import { TError, ErrorType } from '../utils/constants';
-import { formatError } from '../utils/formatter';
+import { MLibreService } from '@services/mlibre.service';
+import { TError, ErrorType } from '@utils/constants';
+import { formatError } from '@utils/formatter';
 
 class SearchController {
   async search(req: Request, res: Response) {

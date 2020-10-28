@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ErrorValue } from '../utils/constants';
+import { ErrorValue } from '@utils/constants';
 
 const notFoundMiddleware = (
   req: Request,

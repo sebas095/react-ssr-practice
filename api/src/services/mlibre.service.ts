@@ -3,7 +3,7 @@ import {
   formatItem,
   formatItemDescription,
   formatMLibreSearchResults,
-} from '../utils/formatter';
+} from '@utils/formatter';
 
 const { MLIBRE_BASE_URL, MLIBRE_COUNTRY_PREFIX } = process.env;
 

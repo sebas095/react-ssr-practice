@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { TError, defaultError } from '../utils/constants';
+import { TError, defaultError } from '@utils/constants';
 
 const errorMiddleware = (
   err: TError,
