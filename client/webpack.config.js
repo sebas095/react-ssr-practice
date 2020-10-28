@@ -15,7 +15,7 @@ const entry = ['./src/frontend/index.js'];
 
 if (isDev) {
   entry.push(
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true'
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true',
   );
 }
 
@@ -46,8 +46,8 @@ module.exports = {
           test(module, chunks) {
             const name = module.nameForCondition && module.nameForCondition();
             return chunks.some(
-              (chunk) =>
-                chunk.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name)
+              chunk =>
+                chunk.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name),
             );
           },
         },
@@ -99,7 +99,7 @@ module.exports = {
       : new CleanWebpackPlugin({
           cleanOnceBeforeBuildPatterns: path.resolve(
             __dirname,
-            'src/server/public'
+            'src/server/public',
           ),
         }),
     new MiniCssExtractPlugin({
