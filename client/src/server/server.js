@@ -66,7 +66,11 @@ const setResponse = (html, manifest) => {
         content="La comunidad de compra y venta online más grande de América Latina."
         />
         <base href="/" />
-        <link rel="stylesheet" href="${mainStyles}" type="text/css" />
+        ${
+          mainStyles
+            ? `<link rel="stylesheet" href="${mainStyles}" type="text/css" />`
+            : ''
+        }
       </head>
       <body>
         <div id="app">${html}</div>
