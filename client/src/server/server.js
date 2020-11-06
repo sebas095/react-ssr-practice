@@ -12,6 +12,7 @@ import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { renderRoutes } from 'react-router-config';
+import { ServerStyleSheet } from 'styled-components';
 
 import Layout from '../frontend/components/layout/layout';
 import ROUTES from '../frontend/router/routes';
@@ -71,6 +72,8 @@ const setResponse = (html, manifest) => {
             ? `<link rel="stylesheet" href="${mainStyles}" type="text/css" />`
             : ''
         }
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&display=swap" type="text/css" />
+        {{CSS}}
       </head>
       <body>
         <div id="app">${html}</div>
@@ -82,13 +85,22 @@ const setResponse = (html, manifest) => {
 };
 
 const renderApp = (req, res) => {
-  const html = renderToString(
-    <StaticRouter>
-      <Layout>{renderRoutes(ROUTES)}</Layout>
-    </StaticRouter>,
+  const sheet = new ServerStyleSheet();
+
+  const markup = renderToString(
+    sheet.collectStyles(
+      <StaticRouter location={req.url} context={{}}>
+        <Layout>{renderRoutes(ROUTES)}</Layout>
+      </StaticRouter>,
+    ),
   );
 
-  res.send(setResponse(html, req.hashManifest));
+  const html = setResponse(markup, req.hashManifest).replace(
+    '{{CSS}}',
+    sheet.getStyleTags(),
+  );
+
+  res.send(html);
 };
 
 app.get('*', renderApp);
