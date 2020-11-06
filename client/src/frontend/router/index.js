@@ -7,11 +7,13 @@ const Router = () => {
   return (
     <Switch>
       {ROUTES.map(({ exact, path, component, key }) => {
-        // if (path) {
-        return (
-          <Route component={component} path={path} exact={exact} key={key} />
-        );
-        // }
+        if (path) {
+          return (
+            <Route component={component} path={path} exact={exact} key={key} />
+          );
+        }
+
+        return <Route component={component} key={key} />;
       })}
     </Switch>
   );
