@@ -7,7 +7,7 @@ require('@babel/register')({
 
 require('asset-require-hook')({
   extensions: ['jpg', 'png', 'gif'],
-  name: 'assets/[hash].[ext]',
+  name: 'assets/[name]-[hash].[ext]',
 });
 
 require('./server');
