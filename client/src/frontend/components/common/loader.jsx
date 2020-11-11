@@ -13,7 +13,7 @@ const LoaderStyled = styled.div`
 const LoaderContentStyled = styled.div`
   border: calc(${constants.defaultSpacing} / 2) solid ${constants.white};
   border-radius: 50%;
-  border-top: calc(${constants.defaultSpacing} / 2) solid ${constants.gray};
+  border-top-color: ${constants.gray};
   width: 80px;
   height: 80px;
   animation: ${spinAnimation} 2s linear infinite;
