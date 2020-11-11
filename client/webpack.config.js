@@ -105,6 +105,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: isDev ? 'assets/app.css' : 'assets/app-[hash].css',
     }),
+    isDev
+      ? () => {}
+      : new webpack.DllReferencePlugin({
+          // eslint-disable-next-line global-require
+          manifest: require('./modules-manifest.json'),
+        }),
     new DotenvWp({ systemvars: true }),
   ],
 };

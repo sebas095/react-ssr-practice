@@ -54,6 +54,7 @@ const setResponse = (html, manifest) => {
   const mainStyles = manifest ? manifest['main.css'] : 'assets/app.css';
   const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js';
   const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendors.js';
+  const modules = 'assets/modules.js'; // dll
 
   return `
     <!DOCTYPE html>
@@ -77,6 +78,7 @@ const setResponse = (html, manifest) => {
       </head>
       <body>
         <div id="app">${html}</div>
+        <script src="${modules}" type="text/javascript"></script>
         <script src="${mainBuild}" type="text/javascript"></script>
         <script src="${vendorBuild}" type="text/javascript"></script>
       </body>
