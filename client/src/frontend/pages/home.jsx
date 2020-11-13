@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { SearchItemContext } from '../context/searchItem';
 
 const Home = () => {
-  return <h1>Hola Mundo</h1>;
+  const { setSearchItem } = useContext(SearchItemContext);
+
+  useEffect(() => {
+    setSearchItem('');
+  }, []);
+
+  return <></>;
 };
 
 export default Home;
