@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "ENV=production webpack-cli --config webpack.config.js",
-    "build:dll": "webpack --config webpack.dll.config.js",
+    "build:dll": "webpack-cli --config webpack.dll.config.js",
     "start": "npm run build && npm run build:dll && node src/server/index.js",
     "dev": "ENV=development nodemon src/server/index.js",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
@@ -85,7 +85,7 @@
     "styled-components": "^5.2.0",
     "terser-webpack-plugin": "^4.2.3",
     "url-loader": "^4.1.1",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.12"
   }
 }
