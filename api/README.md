@@ -11,6 +11,8 @@ To run the project, just follow these steps:
 3. Run the development command and have fun! `npm run dev`
 4. Run in production mode: `npm start`
 
+- Running on http://localhost:5000/v1/api/
+
 ## 🔗 API
 
 ### Search Items
