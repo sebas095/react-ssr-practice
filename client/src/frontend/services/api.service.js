@@ -1,7 +1,9 @@
 /* eslint-disable consistent-return */
+/* eslint-disable prefer-destructuring */
 import { formatItem, formatItems } from '../utils/formatter';
 
-const { API_BASE_URL, RESULTS_LIMIT = 5 } = process.env;
+const API_BASE_URL = process.env.API_BASE_URL;
+const RESULTS_LIMIT = process.env.RESULTS_LIMIT || 5;
 
 class ApiService {
   static async searchItem(query) {
@@ -24,7 +26,7 @@ class ApiService {
   static async getItemDetails(id) {
     try {
       const res = await fetch(`${API_BASE_URL}/items/${id}`);
-      const { item } = await res.json();
+      const item = await res.json();
 
       return { item: formatItem(item) };
     } catch (error) {
