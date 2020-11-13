@@ -7,6 +7,8 @@ const errorMiddleware = (
   res: Response,
   next: NextFunction,
 ) => {
+  if (!err) return next();
+
   const statusCode: number = err.statusCode || defaultError.statusCode;
 
   res.status(statusCode).json({
