@@ -3,20 +3,16 @@ version: "3.7"
 services:
   api:
     container_name: mlibre-api
-    image: node
-    ports: ["5000:5000"]
+    build: ./api
     env_file: ./api/.env
-    volumes:
-      - ./api:/opt/api
-    command: sh -c "cd opt/api && npm install && npm start"
+    ports:
+      - 5000:5000
 
   web:
     container_name: mlibre-client
-    image: node
-    ports: ["3000:3000"]
+    build: ./client
     env_file: ./client/.env
-    volumes:
-      - ./client:/opt/client
-    command: sh -c "cd opt/client && npm install && npm start"
+    ports:
+      - 3000:3000
     depends_on:
       - api
